@@ -1,0 +1,6 @@
+D:\vb 2019 course\ConsoleApp1\ConnectionLib\bin\Debug\ConnectionLib.dll
+D:\vb 2019 course\ConsoleApp1\ConnectionLib\bin\Debug\ConnectionLib.pdb
+D:\vb 2019 course\ConsoleApp1\ConnectionLib\obj\Debug\ConnectionLib.csprojAssemblyReference.cache
+D:\vb 2019 course\ConsoleApp1\ConnectionLib\obj\Debug\ConnectionLib.csproj.CoreCompileInputs.cache
+D:\vb 2019 course\ConsoleApp1\ConnectionLib\obj\Debug\ConnectionLib.dll
+D:\vb 2019 course\ConsoleApp1\ConnectionLib\obj\Debug\ConnectionLib.pdb
