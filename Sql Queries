@@ -1,0 +1,59 @@
+
+-- =============================================
+-- Author:		<Rameshwar Rathi>
+-- Create date: <Create Date, ,>
+-- Description:	<Description, ,>
+-- =============================================
+
+--Q1
+ALTER FUNCTION [dbo].[Search_Model_By_Year]
+(
+	@year int,
+	@make varchar(50)
+)
+RETURNS varchar(50)
+AS
+BEGIN
+
+	DECLARE @model varchar(50)
+	SELECT @model=model from VehicleInfo where ManufactYear=@year and Make=@make
+
+	RETURN @model
+
+END
+
+/*
+Run Command
+
+select dbo.[Search_Model_By_Year](2021,'Tata')
+*/
+
+--Q2
+ALTER PROCEDURE [dbo].[Vehicledata]
+	(
+		@EngineNumber varchar(50),
+		@ChassisNumber varchar(50),
+		@Make varchar(50),
+		@Model varchar(50),
+		@ManufactYear int
+		
+	)
+AS
+BEGIN
+	DECLARE @ID INT
+	insert into VehicleInfo(EngineNumber,ChassisNumber,Make,Model,ManufactYear)
+	values(@EngineNumber, @ChassisNumber, @Make,@Model,@ManufactYear)
+
+	SET @ID=SCOPE_IDENTITY()
+
+	RETURN @ID
+END
+
+--Q3
+ALTER PROCEDURE [dbo].[Sproc_Vehicledata]
+	@year int
+AS
+BEGIN
+	Select * from VehicleInfo,OtherInformation where ManufactYear=@year and VehicleInfo.VehicleID=OtherInformation.VehicleId;
+END
+
