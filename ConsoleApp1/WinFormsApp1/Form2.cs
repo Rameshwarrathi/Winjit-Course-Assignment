@@ -74,14 +74,30 @@ namespace WinFormsApp1
                 }
                 else
                 {
-                    SqlConnection conn = new SqlConnection(Con);
+                    //using normal method
+                    /*SqlConnection conn = new SqlConnection(Con);
                     conn.Open();
                     string qur = "INSERT INTO VehicleInfo(EngineNumber,ChassisNumber,Make,Model,ManufactYear) VALUES ('" + txtEngine.Text + "','" + txtChassis.Text + "','" + txtMake.Text + "','" + txtModel.Text + "','" + txtmanufacture.Text + "')";
 
                     SqlCommand cmd = new SqlCommand(qur, conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Inserted sucessfully");
+                    MessageBox.Show("Inserted sucessfully");*/
+                    
+                    //using stored procedure 
+                    SqlConnection conn = new SqlConnection(Con);
+                    conn.Open();
+                    SqlCommand c = new SqlCommand("Insert_Vehicledata", conn);
+                    
+                    c.CommandType = System.Data.CommandType.StoredProcedure;
+                    c.Parameters.AddWithValue("@EngineNumber", txtEngine.Text);
+                    c.Parameters.AddWithValue("@ChassisNumber", txtChassis.Text);
+                    c.Parameters.AddWithValue("@Make", txtMake.Text);
+                    c.Parameters.AddWithValue("@Model", txtModel.Text);
+                    c.Parameters.AddWithValue("@ManufactYear", txtmanufacture.Text);
+                    
+                    c.ExecuteNonQuery();
+                    MessageBox.Show("Successfully Inserted....");
                     getdata();
                 }
             }
